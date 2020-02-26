@@ -1,0 +1,4 @@
+[submodule "todomvc"]
+	path = todomvc
+	url = https://github.com/igorlima/todomvc.git
+	branch = react-mongo-graphql
