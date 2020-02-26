@@ -8,6 +8,11 @@ var GraphQLString = graphql.GraphQLString
 var GraphQLList = graphql.GraphQLList
 var GraphQLNonNull = graphql.GraphQLNonNull
 var GraphQLSchema = graphql.GraphQLSchema
+var result = dotenv.config()
+
+if (result.error) {
+  throw result.error
+}
 
 // Mongoose Schema definition
 var TODO = mongoose.model('Todo', new Schema({
@@ -26,7 +31,9 @@ var TODO = mongoose.model('Todo', new Schema({
  * COMPOSE_URI=mongodb://example:example@127.0.0.1:27017/todo
  */
 var COMPOSE_URI_DEFAULT = 'mongodb://graphqltodosuser:graphqltodospassword@candidate.12.mongolayer.com:11219,candidate.60.mongolayer.com:10594/graphqltodos?replicaSet=set-569540e711469f811f0000a2'
-mongoose.connect(process.env.COMPOSE_URI || COMPOSE_URI_DEFAULT, function (error) {
+// mongoose.connect(process.env.COMPOSE_URI || COMPOSE_URI_DEFAULT, function (error) {
+
+mongoose.connect(result.parsed.COMPOSE_URI || COMPOSE_URI_DEFAULT, function (error) {
   if (error) console.error(error)
   else console.log('mongo connected')
 })
