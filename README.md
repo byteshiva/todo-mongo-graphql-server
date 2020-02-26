@@ -2,6 +2,9 @@
 Using GraphQL with MongoDB
 
 
+Download Mongodb debian and install on ubuntu
+https://www.mongodb.com/download-center/community
+
 refe:
 
 ```mongodb
